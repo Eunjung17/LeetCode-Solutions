@@ -39,3 +39,48 @@
 
 <p>&nbsp;</p>
 <strong>Follow-up:&nbsp;</strong>Can you come up with an algorithm that is less than <code>O(n<sup>2</sup>)</code><font face="monospace">&nbsp;</font>time complexity?
+
+
+[Question 1. Two Sum](https://leetcode.com/problems/two-sum/description/)
+
+### _Explanation of the Question_
+
+1. Return indices of the two numbers that **they add up to target**
+	**Input:** nums = [2,7,11,15], target = 9
+	**Output:** [0,1]
+2. Each input would have **exactly one solution**
+3. You may not use the same element twice
+### _How to Solve_
+
+1. The variable `i` iterates over all indices of the array second-to-last element
+2. For each index `i`, the variable `j` stars from i + 1 and iterates through the remaining elements of the array.
+
+### _First Code_
+
+```javascript
+function letterCasePermutation(value){
+
+    let allCombination = [];
+
+    function backTrack(path, index){
+
+        if(index === value.length){
+            allCombination.push(path);
+            return;
+        }
+
+        let singleString = value[index];
+
+        if(isNaN(singleString)){// if it is a character
+            backTrack(path + singleString.toLowerCase(), index + 1);
+            backTrack(path + singleString.toUpperCase(), index + 1);
+        }else{//if it is a number
+            backTrack(path + singleString, index + 1);
+        }
+    }
+
+    backTrack('', 0);
+
+    return allCombination;
+}
+```
