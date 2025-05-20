@@ -14,6 +14,11 @@
 //     else return false;
 // };
 
+/**
+Time Complexity: O(N)
+Space Complexity: O(N)
+*/
+
 var isAnagram = function(s, t) {
     if (s.length !== t.length) return false;
 
