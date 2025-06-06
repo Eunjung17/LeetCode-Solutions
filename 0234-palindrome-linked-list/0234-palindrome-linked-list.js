@@ -78,9 +78,6 @@ var isPalindrome = function(head) {
         fast = fast.next.next;
     }
 
-       // 홀수 길이면 중간 노드는 건너뜀
-    if (fast) slow = slow.next;
-
     current = slow;
 
     // Make a seperate with left node & reverse them
@@ -96,8 +93,10 @@ var isPalindrome = function(head) {
     let rightNode = previous;
 
     // Comparing two node sets
-    while(rightNode){
+    while(leftNode && rightNode){ // In case of odd number of node, use leftNode
+
         if(leftNode.val !== rightNode.val) return false;
+
         leftNode = leftNode.next;
         rightNode = rightNode.next;
     }
