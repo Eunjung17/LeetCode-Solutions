@@ -7,13 +7,18 @@
  */
 
 /** 
-1. Traverse the poiners from the beginning to the end using while:
-    - Store the values in an empty array
-2. Find the middle of the array.
-3. Traverse from the beginning up to the middle:
+1. Convert Linked-list into Array-list using While-loop
+2. Find the middle index
+3. Using For-loop:
     - Compare each value with the corresponding value from  the end of the array, moving backword:
         - if the values are different, return false
 4. return true
+
+Time Complexity: O(N)
+Space Complexity: O(N)
+
+Fail: Space Complexity: O(N) should be O(1)
+
 */
 /**
  * @param {ListNode} head
@@ -24,18 +29,35 @@ var isPalindrome = function(head) {
     let middle = 0;
     let curCompareIndex = 0;
 
-    while(head){ // store all values in array from linked list
+    // Convert Linked-list into Array-list
+    while(head){
         valArray.push(head.val);
         head = head.next;
     }
     
-    curCompareIndex = valArray.length - 1; // find an end of index
-    middle = Math.floor(valArray.length / 2); // find a middle of index
+    // end-index
+    curCompareIndex = valArray.length - 1;
+
+    // middle-index
+    middle = Math.floor(valArray.length / 2);
     
-    for(let i = 0 ; i < middle ; i++){ // Until a middle of index, compare each of indice with last of index, moving backword
+    // Compare each of indice with last of index, moving backword
+    for(let i = 0 ; i < middle ; i++){ 
         if(valArray[i] !== valArray[curCompareIndex]) return false;
 
         curCompareIndex--;
     }
     return true;
 };
+
+/** 
+1. Convert Linked-list into Array using While-loop
+2. Reverse vals of ArrayList
+3. Check if the two Array are eqal to each other
+
+Time Complexity: O(N)
+Space Complexity: O(N)
+
+Fail: Space Complexity: O(N) should be O(1)
+
+*/
