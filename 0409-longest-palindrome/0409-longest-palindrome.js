@@ -10,6 +10,9 @@
         - even numbers as they are
         - For odd numbers greater than 1, subtract 1 to make them even
         - Add 1 only for one case among all odd numbers
+
+- Time Complexity: O(N)
+- Space Complexity: O(1)
 */
 /**
  * @param {string} s
