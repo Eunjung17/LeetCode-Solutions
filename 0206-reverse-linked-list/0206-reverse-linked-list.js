@@ -4,6 +4,9 @@
  *     this.val = (val===undefined ? 0 : val)
  *     this.next = (next===undefined ? null : next)
  * }
+
+ Time Complexity: O(N)
+ Space Complexity: O(1)
  */
 /**
  * @param {ListNode} head
