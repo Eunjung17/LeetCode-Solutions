@@ -1,3 +1,8 @@
+/** 
+- Time Complexity: O(N)
+- Space Complexity: O(N)
+*/
+
 /**
  * @param {number[]} nums
  * @return {number}
@@ -14,7 +19,7 @@ var majorityElement = function(nums) {
     let majorityElement = null;
 
     for(let [key,value] of freqNums){
-        if(value > maxCount){
+        if(value > maxCount && value > nums.length / 2){
             maxCount = value;
             majorityElement = key;
         }
