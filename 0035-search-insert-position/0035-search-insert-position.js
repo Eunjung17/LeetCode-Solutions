@@ -2,6 +2,9 @@
     1. Iterate from beginning in nums:
         - if nums[index] >= target: return index
     2. return nums.length (Escape 1.loop means there is no corresponding value with target)
+
+    Time Complexity: O(N)
+    Space Complexity: O(1)
 */
 
 /**
