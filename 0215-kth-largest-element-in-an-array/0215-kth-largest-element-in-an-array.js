@@ -6,25 +6,29 @@
 var findKthLargest = function(nums, k) {
 
     let KCount = 0;
-    let arrayRange = -1;
-    let OFFSET = 10000;
+    let maxNum = -Infinity;
+    let minNum = Infinity;
+    let offset = 0;
 
-    // for(let i = 0 ; i < nums.length ; i++){
+    for(let i = 0 ; i < nums.length ; i++){
+        
+        maxNum = Math.max(maxNum, nums[i]);
+        minNum = Math.min(minNum, nums[i]);
+    }
 
-    //     arrayRange = Math.max(arrayRange, nums[i]);
-    // }
+    if(minNum < 0) offset = Math.abs(minNum);
 
-    let freqNum = new Array(20001).fill(0);
+    let freqNum = new Array(Math.abs(maxNum) + Math.abs(offset) + 1).fill(0);
 
     for (let num of nums) {
-        freqNum[num + OFFSET]++;
+        freqNum[num + offset]++;
     }
 
     for(let i = freqNum.length - 1 ; i >= 0 ; i--){
 
         KCount += freqNum[i];
 
-        if(KCount >= k) return i - OFFSET;
+        if(KCount >= k) return i - offset;
     }
 
     return -1;
