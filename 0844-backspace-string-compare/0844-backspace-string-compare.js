@@ -10,29 +10,32 @@ fail: That's not O(n) time and O(1) space
  * @param {string} t
  * @return {boolean}
  */
-// var backspaceCompare = function(s, t) {
-//     let SWithBackspace = [];
-//     let TWithBackspace = [];
+var backspaceCompare = function(s, t) {
+    let SWithBackspace = [];
+    let TWithBackspace = [];
 
-//     for(let char of s){
-//         if(char !== '#') SWithBackspace.push(char);
-//         else SWithBackspace.pop();
-//     }
+    for(let char of s){
+        if(char !== '#') SWithBackspace.push(char);
+        else SWithBackspace.pop();
+    }
 
-//     for(let char of t){
-//         if(char !== '#') TWithBackspace.push(char);
-//         else TWithBackspace.pop();
-//     }
+    for(let char of t){
+        if(char !== '#') TWithBackspace.push(char);
+        else TWithBackspace.pop();
+    }
 
 
-//     return SWithBackspace.join("") === TWithBackspace.join("");
+    return SWithBackspace.join("") === TWithBackspace.join("");
 
-// };
+};
 
 /** 
 
 For O(n) time and O(1) space
 Use pointers
+
+- Time Complexity : O(N)
+- Space Complexity : O(1)
 
 */
 /**
@@ -72,10 +75,11 @@ var backspaceCompare = function(s, t) {
             }else break;
         }
 
-        if(s[sPointer] !== t[tPointer]) return false;
-
+        
         sPointer--;
         tPointer--;
+
+        if(s[sPointer] !== t[tPointer]) return false;
 
     }
 
