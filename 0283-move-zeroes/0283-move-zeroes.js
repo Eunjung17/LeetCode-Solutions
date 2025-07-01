@@ -21,8 +21,6 @@ var moveZeroes = function(nums) {
             
             if(nums[pointer + 1] === 0){
                 pointer = pointer + 1;
-            }else{
-                pointer = i;
             }
         }
     }
