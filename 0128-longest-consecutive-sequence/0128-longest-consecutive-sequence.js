@@ -9,7 +9,7 @@ var longestConsecutive = function(nums) {
     let countSeq = 0;
     let maxSeq = 0;
 
-    for(num of nums){
+    for(let num of numSet){
 
         // Only start counting if num is the start of a sequence 
         if(!numSet.has(num - 1)){
