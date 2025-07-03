@@ -9,32 +9,13 @@
 
 
 
--- WITH
---   min_data AS (
---     SELECT
---       A.player_id,
---       MIN(A.event_date) AS event_date
---     FROM
---       Activity A
---     GROUP BY
---       A.player_id
---   )
--- SELECT
---   A2.player_id,
---   A2.device_id
--- FROM
---   Activity A2
---   INNER JOIN min_data M ON M.player_id = A2.player_id
---   AND M.event_date = A2.event_date;
+WITH min_data AS (
+    select a.player_id, MIN(a.event_date) event_date
+    from Activity a
+    group by a.player_id
+)
+select a1.player_id, a1.device_id
+from Activity a1
+inner join min_data m on m.player_id = a1.player_id
+and m.event_date = a1.event_date;
 
-
-SELECT DISTINCT
-  A.player_id,
-  FIRST_VALUE(A.device_id) OVER (
-    PARTITION BY
-      A.player_id
-    ORDER BY
-      A.event_date
-  ) AS device_id
-FROM
-  Activity A;
