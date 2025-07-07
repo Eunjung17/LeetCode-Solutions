@@ -1,7 +1,7 @@
 /*
-    1. string 'x' convert to array
-    2. iterate from beginning to middle :
-        - comparing indexs from the beginning from the end  
+    1. Convert the string 'x' to an array
+    2. Iterate from the beginning to the middle :
+        - Compare elements from the beginning and the end  
 */
 /**
  * @param {number} x
