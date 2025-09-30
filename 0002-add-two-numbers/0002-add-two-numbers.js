@@ -1,4 +1,3 @@
-/** */
 
 /**
  * Definition for singly-linked list.
@@ -14,7 +13,7 @@
  */
 var addTwoNumbers = function(l1, l2) {
     
-    let newHead = new ListNode(0);
+    let newHead = new ListNode(0); //new LinkedList for sum of adding two numbers
     let current = newHead;
     let carry = 0;
 
@@ -34,7 +33,7 @@ var addTwoNumbers = function(l1, l2) {
 
     }
 
-    if(carry !== 0){
+    if(carry !== 0){ // In case of carry is remained
         current.next = new ListNode(carry);
         current = current.next;
     }
